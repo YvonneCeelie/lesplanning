@@ -39,6 +39,9 @@ services:
       - '8024:8024'
       - '8124:8124'
       - '8224:8224'
+    environment:
+      - AXONIQ_AXONSERVER_AUTOCLUSTER_FIRST
+      - AXONIQ_AXONSERVER_AUTOCLUSTER_CONTEXTS=default
 
 
 volumes:
