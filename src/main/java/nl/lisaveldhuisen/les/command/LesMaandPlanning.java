@@ -39,7 +39,7 @@ public class LesMaandPlanning {
     @CommandHandler
     public void handle(VerplaatsLes command) {
         checkOverlap(command.getDatumTijdStartNieuw(), command.getDuurNieuw());
-        apply(new LesGepland(command.getMaand(), command.getLesId(), command.getKlantId(), command.getDatumTijdStartNieuw(), command.getDuurNieuw(), command.getLocatieId()));
+        apply(new LesVerplaatst(command.getMaand(), command.getLesId(), command.getKlantId(), command.getDatumTijdStartOud(), command.getDuurOud(), command.getDatumTijdStartNieuw(), command.getDuurNieuw(), command.getLocatieId()));
     }
 
     @CommandHandler
