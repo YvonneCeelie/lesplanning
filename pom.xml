@@ -16,7 +16,7 @@
 	<properties>
 		<spring.version>3.2.4</spring.version>
 		<java.version>17</java.version>
-		<axon.version>4.9.3</axon.version>
+		<axon.version>4.9.4</axon.version>
         <kotlin.version>2.0.0-Beta4</kotlin.version>
 
     </properties>
