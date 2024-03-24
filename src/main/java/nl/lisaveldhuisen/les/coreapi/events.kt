@@ -36,7 +36,8 @@ data class KlantGeregistreerd(
     val naam: String,
     val straat: String,
     val postCode: String,
-    val woonplaats: String
+    val woonplaats: String,
+    val email: String
 )
 data class LocatieGeregistreerd(
     val locatieId: UUID,

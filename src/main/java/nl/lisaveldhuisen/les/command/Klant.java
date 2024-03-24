@@ -18,10 +18,13 @@ import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 public class Klant {
     @AggregateIdentifier
     private UUID klantId;
+    public Klant() {
+        // Needed for Axon
+    }
 
     @CommandHandler
     public Klant(RegistreerKlant command) {
-        apply(new KlantGeregistreerd(command.getKlantId(), command.getNaam(), command.getStraat(), command.getPostCode(), command.getWoonplaats()));
+        apply(new KlantGeregistreerd(command.getKlantId(), command.getNaam(), command.getStraat(), command.getPostCode(), command.getWoonplaats(), command.getEmail()));
     }
 
     @CommandHandler
