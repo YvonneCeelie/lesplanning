@@ -1,8 +1,8 @@
 package nl.lisaveldhuisen.les.event.repository.les;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import java.time.YearMonth;
 import java.util.Set;
 
