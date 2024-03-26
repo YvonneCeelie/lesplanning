@@ -20,8 +20,8 @@ public class Locatie {
         AggregateLifecycle.apply(new LocatieGeregistreerd(command.getLocatieId(), command.getNaam(), command.getStraat(), command.getPostCode(), command.getWoonplaats(), command.getLatitude(), command.getLongitude()));
     }
     @CommandHandler
-    public void handle(WijzigKlant command){
-        AggregateLifecycle.apply(new KlantGewijzigd(command.getKlantId(), command.getNaam(), command.getStraat(), command.getPostCode(), command.getWoonplaats(), command.getEmail()));
+    public void handle(WijzigLocatie command){
+        AggregateLifecycle.apply(new LocatieGewijzigd(command.getLocatieId(), command.getNaam(), command.getStraat(), command.getPostCode(), command.getWoonplaats(), command.getLatitude(), command.getLatitude()));
     }
 
     @CommandHandler
