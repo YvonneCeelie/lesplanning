@@ -18,6 +18,63 @@ public class LesEntity {
     private YearMonth maand;
     private LocalDateTime startTijd;
     private LocalDateTime eindTijd;
-    private String klantNaam;
-    private String locatieNaam;
+    private UUID klantId;
+    private UUID locatieId;
+
+    public LesEntity(UUID id, YearMonth maand, LocalDateTime startTijd, LocalDateTime eindTijd, UUID klantId, UUID locatieId) {
+        this.id = id;
+        this.maand = maand;
+        this.startTijd = startTijd;
+        this.eindTijd = eindTijd;
+        this.klantId = klantId;
+        this.klantId = locatieId;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public YearMonth getMaand() {
+        return maand;
+    }
+
+    public void setMaand(YearMonth maand) {
+        this.maand = maand;
+    }
+
+    public LocalDateTime getStartTijd() {
+        return startTijd;
+    }
+
+    public void setStartTijd(LocalDateTime startTijd) {
+        this.startTijd = startTijd;
+    }
+
+    public LocalDateTime getEindTijd() {
+        return eindTijd;
+    }
+
+    public void setEindTijd(LocalDateTime eindTijd) {
+        this.eindTijd = eindTijd;
+    }
+
+    public UUID getKlantId() {
+        return klantId;
+    }
+
+    public void setKlantId(UUID klantId) {
+        this.klantId = klantId;
+    }
+
+    public UUID getLocatieId() {
+        return locatieId;
+    }
+
+    public void setLocatieId(UUID locatieId) {
+        this.locatieId = locatieId;
+    }
 }

@@ -65,7 +65,7 @@ public class LesMaandPlanning {
 
     @EventSourcingHandler
     public void on(LesVerplaatst event) {
-        Les les = new Les(event.getLesId(), event.getKlantId(), event.getDatumTijdStartNieuw(), event.getDuurNieuw());
+        Les les = new Les(event.getLesId(), event.getKlantId(), event.getDatumTijdStart(), event.getDuur());
         lessen.put(event.getLesId(), les);
     }
 

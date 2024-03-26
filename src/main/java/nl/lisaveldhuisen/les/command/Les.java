@@ -32,8 +32,8 @@ public class Les {
 
     @EventSourcingHandler
     public void on(LesVerplaatst event) {
-        this.startTijd = event.getDatumTijdStartNieuw();
-        this.duration = event.getDuurNieuw();
+        this.startTijd = event.getDatumTijdStart();
+        this.duration = event.getDuur();
     }
 
     @Override

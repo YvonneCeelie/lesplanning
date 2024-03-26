@@ -1,14 +1,12 @@
 package nl.lisaveldhuisen.les.command;
 
-import nl.lisaveldhuisen.les.coreapi.KlantGeregistreerd;
-import nl.lisaveldhuisen.les.coreapi.KlantVerwijderd;
-import nl.lisaveldhuisen.les.coreapi.RegistreerKlant;
-import nl.lisaveldhuisen.les.coreapi.VerwijderKlant;
+import nl.lisaveldhuisen.les.coreapi.*;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
+
 import java.util.UUID;
 
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
@@ -18,6 +16,7 @@ import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 public class Klant {
     @AggregateIdentifier
     private UUID klantId;
+
     public Klant() {
         // Needed for Axon
     }
@@ -26,7 +25,10 @@ public class Klant {
     public Klant(RegistreerKlant command) {
         apply(new KlantGeregistreerd(command.getKlantId(), command.getNaam(), command.getStraat(), command.getPostCode(), command.getWoonplaats(), command.getEmail()));
     }
-
+    @CommandHandler
+    public void handle(WijzigKlant command) {
+        apply(new KlantGewijzigd(command.getKlantId(), command.getNaam(), command.getStraat(), command.getPostCode(), command.getWoonplaats(), command.getEmail()));
+    }
     @CommandHandler
     public void handle(VerwijderKlant command) {
         apply(new KlantVerwijderd(command.getKlantId()));

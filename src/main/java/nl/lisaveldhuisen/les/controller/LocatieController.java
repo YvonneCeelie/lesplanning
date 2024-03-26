@@ -2,7 +2,7 @@ package nl.lisaveldhuisen.les.controller;
 
 import nl.lisaveldhuisen.les.coreapi.LocatieGegevensRequest;
 import nl.lisaveldhuisen.les.coreapi.RegistreerLocatie;
-import nl.lisaveldhuisen.les.coreapi.UpdateLocatie;
+import nl.lisaveldhuisen.les.coreapi.WijzigLocatie;
 import nl.lisaveldhuisen.les.coreapi.VerwijderLocatie;
 import nl.lisaveldhuisen.les.event.repository.locatie.LocatieEntity;
 import nl.lisaveldhuisen.les.event.repository.locatie.LocatieRepository;
@@ -29,7 +29,7 @@ public class LocatieController {
     }
     @PutMapping("/api/v1/locatie/locatieId")
     public CompletableFuture<Void> updateLocatie(@PathVariable UUID locatieId, LocatieGegevensRequest request) {
-        UpdateLocatie command = new UpdateLocatie(locatieId, request.getNaam(), request.getStraat(), request.getPostCode(), request.getWoonplaats(), request.getLatitude(), request.getLongitude());
+        WijzigLocatie command = new WijzigLocatie(locatieId, request.getNaam(), request.getStraat(), request.getPostCode(), request.getWoonplaats(), request.getLatitude(), request.getLongitude());
         return commandGateway.send(command);
     }
     @DeleteMapping("/api/v1/locatie/{locatieId}")

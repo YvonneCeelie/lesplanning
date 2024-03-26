@@ -39,7 +39,7 @@ data class RegistreerLocatie(
     val latitude: Double,
     val longitude: Double
 )
-data class UpdateLocatie(
+data class WijzigLocatie(
     @TargetAggregateIdentifier
     val locatieId: UUID,
     val naam: String,

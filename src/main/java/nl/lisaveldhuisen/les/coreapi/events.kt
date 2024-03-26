@@ -9,24 +9,33 @@ data class MaandPlanningAdded(
     val maand: YearMonth
 )
 
-data class LesGepland(
-    val maand: YearMonth,
-    val lesId: UUID,
-    val klantId: UUID,
-    val datumTijdStart: LocalDateTime,
-    val duur: Duration,
+interface LesEvent{
+    val maand: YearMonth
+    val lesId: UUID
+    val klantId: UUID
+    val datumTijdStart: LocalDateTime
+    val duur: Duration
     val locatieId:UUID
-)
+}
+
+data class LesGepland (
+    override val maand: YearMonth,
+    override val lesId: UUID,
+    override val klantId: UUID,
+    override val datumTijdStart: LocalDateTime,
+    override val duur: Duration,
+    override val locatieId: UUID
+) : LesEvent
 data class LesVerplaatst(
-    val maand: YearMonth,
-    val lesId: UUID,
-    val klantId: UUID,
+    override val maand: YearMonth,
+    override val lesId: UUID,
+    override val klantId: UUID,
     val datumTijdStartOud: LocalDateTime,
     val duurOud: Duration,
-    val datumTijdStartNieuw: LocalDateTime,
-    val duurNieuw: Duration,
-    val locatieId:UUID
-)
+    override val datumTijdStart: LocalDateTime,
+    override val duur: Duration,
+    override val locatieId:UUID
+) : LesEvent
 data class LesGeannuleerd(
     val maand:YearMonth,
     val lesId: UUID
@@ -44,7 +53,27 @@ data class LocatieGeregistreerd(
     val naam: String,
     val straat: String,
     val postCode: String,
-    val woonplaats: String
+    val woonplaats: String,
+    val longitude:Double,
+    val latitude: Double
+)
+
+data class KlantGewijzigd(
+    val klantId: UUID,
+    val naam: String,
+    val straat: String,
+    val postCode: String,
+    val woonplaats: String,
+    val email: String
+)
+data class LocatieGewijzigd(
+    val locatieId: UUID,
+    val naam: String,
+    val straat: String,
+    val postCode: String,
+    val woonplaats: String,
+    val longitude:Double,
+    val latitude: Double
 )
 data class KlantVerwijderd(
     val klantId: UUID
