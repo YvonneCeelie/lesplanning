@@ -30,6 +30,9 @@ public class LesEntity {
         this.klantId = locatieId;
     }
 
+    public LesEntity() {
+    }
+
     public UUID getId() {
         return id;
     }

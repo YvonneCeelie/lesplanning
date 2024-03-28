@@ -14,6 +14,9 @@ public class LesPlanningEntity {
         this.lessen = Set.of();
     }
 
+    public LesPlanningEntity() {
+    }
+
     @Id
     private YearMonth maand;
     @OneToMany(mappedBy = "maand")
