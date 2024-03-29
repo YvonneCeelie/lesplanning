@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS locatie_entity (
     straat varchar(255),
     postCode varchar(255),
     woonplaats varchar(255),
-    latitude varchar(255),
-    longitude varchar(255)
+    latitude  NUMERIC(14,11),
+    longitude NUMERIC(14,11)
 );
 create table les_planning_entity (
     maand bytea not null,
@@ -40,6 +40,11 @@ create table association_value_entry (
         saga_type varchar(255),
         primary key (id)
  );
- create table dead_letter_entry (enqueued_at timestamp(6) with time zone not null, last_touched timestamp(6) with time zone, processing_started timestamp(6) with time zone, sequence_index bigint not null, sequence_number bigint, cause_message varchar(1023), aggregate_identifier varchar(255), cause_type varchar(255), dead_letter_id varchar(255) not null, event_identifier varchar(255) not null, message_type varchar(255) not null, payload_revision varchar(255), payload_type varchar(255) not null, processing_group varchar(255) not null, sequence_identifier varchar(255) not null, time_stamp varchar(255) not null, token_type varchar(255), type varchar(255), diagnostics oid, meta_data oid, payload oid not null, token oid, primary key (dead_letter_id), unique (processing_group, sequence_identifier, sequence_index));
 
- create table saga_entry (revision varchar(255), saga_id varchar(255) not null, saga_type varchar(255), serialized_saga oid, primary key (saga_id));
+create table dead_letter_entry (enqueued_at timestamp(6) with time zone not null, last_touched timestamp(6) with time zone, processing_started timestamp(6) with time zone, sequence_index bigint not null, sequence_number bigint, cause_message varchar(1023), aggregate_identifier varchar(255), cause_type varchar(255), dead_letter_id varchar(255) not null, event_identifier varchar(255) not null, message_type varchar(255) not null, payload_revision varchar(255), payload_type varchar(255) not null, processing_group varchar(255) not null, sequence_identifier varchar(255) not null, time_stamp varchar(255) not null, token_type varchar(255), type varchar(255), diagnostics oid, meta_data oid, payload oid not null, token oid, primary key (dead_letter_id), unique (processing_group, sequence_identifier, sequence_index));
+
+create table saga_entry (revision varchar(255), saga_id varchar(255) not null, saga_type varchar(255), serialized_saga oid, primary key (saga_id));
+create table roles (id bigserial not null, name varchar(255) not null unique, primary key (id));
+create table users (id bigserial not null, password varchar(255) not null, username varchar(255) not null, primary key (id));
+
+create table users_roles (role_id bigint not null, user_id bigint not null);
