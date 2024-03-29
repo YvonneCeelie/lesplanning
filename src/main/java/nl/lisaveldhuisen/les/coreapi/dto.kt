@@ -36,4 +36,25 @@ data class LocatieGegevensRequest(
     val latitude: Double,
     val longitude: Double
 )
+data class LoginDto(
+        val usernameOrEmail:String,
+        val password: String
+)
+
+data class JwtAuthResponse @JvmOverloads constructor(
+        val accessToken:String,
+        val tokenType: String = "Bearer"
+)
+data class RegisterUserDto(
+        val usernameOrEmail:String,
+        val password: String
+)
+data class LoginUserDto(
+        val usernameOrEmail:String,
+        val password: String
+)
+data class LoginResponse(
+        val token:String,
+        val expires:Long
+)
 

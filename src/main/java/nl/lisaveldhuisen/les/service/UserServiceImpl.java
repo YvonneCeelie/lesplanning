@@ -26,8 +26,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void saveUser(UserDto userDto) {
         User user = new User();
-        user.setName(userDto.getFirstName() + " " + userDto.getLastName());
-        user.setEmail(userDto.getEmail());
+        user.setUsername(userDto.getFirstName() + " " + userDto.getLastName());
         // encrypt the password using spring security
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
@@ -46,7 +45,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+        return userRepository.findByUsername(email);
     }
 
     @Override
@@ -58,10 +57,9 @@ public class UserServiceImpl implements UserService{
     }
     private UserDto mapToUserDto(User user){
         UserDto userDto = new UserDto();
-        String[] str = user.getName().split(" ");
+        String[] str = user.getUsername().split(" ");
         userDto.setFirstName(str[0]);
         userDto.setLastName(str[1]);
-        userDto.setEmail(user.getEmail());
         return userDto;
     }
 }
