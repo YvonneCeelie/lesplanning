@@ -27,7 +27,7 @@ public class LocatieController {
         RegistreerLocatie command = new RegistreerLocatie(UUID.randomUUID(), request.getNaam(), request.getStraat(), request.getPostCode(), request.getWoonplaats(), request.getLatitude(), request.getLongitude());
         return commandGateway.send(command);
     }
-    @PutMapping("/api/v1/locatie/locatieId")
+    @PutMapping("/api/v1/locatie/{locatieId}")
     public CompletableFuture<Void> updateLocatie(@PathVariable UUID locatieId, LocatieGegevensRequest request) {
         WijzigLocatie command = new WijzigLocatie(locatieId, request.getNaam(), request.getStraat(), request.getPostCode(), request.getWoonplaats(), request.getLatitude(), request.getLongitude());
         return commandGateway.send(command);

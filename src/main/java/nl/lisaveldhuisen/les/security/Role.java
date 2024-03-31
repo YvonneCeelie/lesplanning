@@ -3,11 +3,12 @@ package nl.lisaveldhuisen.les.security;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name="roles")
 public class Role {
-    public Role(Long id, String name, List<User> users) {
+    public Role(UUID id, String name, List<User> users) {
         this.id = id;
         this.name = name;
         this.users = users;
@@ -16,8 +17,8 @@ public class Role {
     }
 
     @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+        @GeneratedValue(strategy = GenerationType.UUID)
+        private UUID id;
 
         @Column(nullable=false, unique=true)
         private String name;
@@ -25,11 +26,11 @@ public class Role {
         @ManyToMany(mappedBy="roles")
         private List<User> users;
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

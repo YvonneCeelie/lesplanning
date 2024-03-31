@@ -1,8 +1,6 @@
 package nl.lisaveldhuisen.les.coreapi
 
-import java.time.Duration
 import java.time.LocalDateTime
-import java.time.YearMonth
 import java.util.*
 
 data class KlantGegevensRequest(
@@ -14,18 +12,17 @@ data class KlantGegevensRequest(
 )
 
 data class PLanLesRequest(
-    val maand: YearMonth,
     val klantId: UUID,
     val datumTijdStart: LocalDateTime,
-    val duur: Duration,
+    val datumTijdEinde: LocalDateTime,
     val locatieId: UUID
 )
 
 data class VerplaatsLesRequest(
     val datumTijdStartOud: LocalDateTime,
-    val duurOud: Duration,
+    val datumTijdEindeOud: LocalDateTime,
     val datumTijdStartNieuw: LocalDateTime,
-    val duurNieuw: Duration,
+    val datumTijdEindeNieuw: LocalDateTime,
     val locatieId:UUID
 )
 data class LocatieGegevensRequest(

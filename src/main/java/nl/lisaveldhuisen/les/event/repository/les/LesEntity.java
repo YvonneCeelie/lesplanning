@@ -1,9 +1,8 @@
 package nl.lisaveldhuisen.les.event.repository.les;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 
 import java.time.LocalDateTime;
@@ -27,7 +26,7 @@ public class LesEntity {
         this.startTijd = startTijd;
         this.eindTijd = eindTijd;
         this.klantId = klantId;
-        this.klantId = locatieId;
+        this.locatieId = locatieId;
     }
 
     public LesEntity() {
