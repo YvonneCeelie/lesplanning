@@ -17,7 +17,7 @@
 		<spring.version>3.2.4</spring.version>
 		<java.version>17</java.version>
 		<axon.version>4.9.4</axon.version>
-        <kotlin.version>2.0.0-Beta5</kotlin.version>
+        <kotlin.version>2.0.0</kotlin.version>
 		<instancio.version>1.0.4</instancio.version>
 		<jwt.version>0.12.5</jwt.version>
 
