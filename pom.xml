@@ -19,7 +19,7 @@
 		<axon.version>4.9.4</axon.version>
         <kotlin.version>2.0.0-Beta5</kotlin.version>
 		<instancio.version>1.0.4</instancio.version>
-		<jwt.version>0.12.5</jwt.version>
+		<jwt.version>0.12.6</jwt.version>
 
     </properties>
 	<dependencies>
